@@ -1,57 +1,174 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Odyssey Fantasia</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <style>
     body {
-      background-color: #0A043C;
-      color: #FFFFFF;
-      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
+      font-family: "Exo", sans-serif;
+      color: #fff;
     }
-    
-    .container {
+
+    .hero {
+      height: 100vh;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
-      height: 100vh;
-      text-align: center;
+      align-items: center;
+      background: linear-gradient(-45deg, #3c3177, #73408e, #aa4fa5, #e15fbc);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
     }
-    
-    h1 {
+
+    @keyframes gradientBG {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .festival-name {
       font-size: 48px;
-      color: #FF0080;
-      margin-bottom: 16px;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-bottom: 20px;
     }
-    
-    p {
+
+    .motto {
       font-size: 24px;
-      margin-bottom: 32px;
+      font-style: italic;
+      margin-bottom: 40px;
     }
-    
-    a {
-      display: inline-block;
-      padding: 12px 24px;
-      background-color: #FFD700;
-      color: #0A043C;
-      font-size: 20px;
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .social-icons a {
+      color: #ffffff;
+      margin-right: 10px;
+      font-size: 24px;
+    }
+
+    #news {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(-45deg, #3c3177, #73408e, #aa4fa5, #e15fbc);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+    }
+
+    #news .container {
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 100px;
+      text-align: left;
+      margin: 0 auto;
+	  width: 200px;
+      max-width: 800px;
+    }
+
+    #news h2 {
+  font-weight: bold;
+  color: #73408e;
+  font-family: "Constantia", sans-serif;
+  text-align: center;
+}
+
+
+    #news ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+
+    #news li {
+      margin-bottom: 10px;
+    }
+
+    #news a {
+      display: block;
+      font-weight: bold;
+      color: #000000;
       text-decoration: none;
-      border-radius: 4px;
-      transition: background-color 0.3s;
+      transition: color 0.3s ease;
     }
-    
-    a:hover {
-      background-color: #FFB700;
+
+    #news a:hover {
+      color: #73408e;
+    }
+
+    .scroll-button {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      z-index: 999;
+    }
+
+    .scroll-button a {
+      color: #ffffff;
+      font-size: 24px;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Welcome to Odyssey Fantasia</h1>
-    <p>Experience an immersive journey through vibrant electronic music.</p>
-    <a href="#">Check Back Soon!</a>
+  <div class="hero">
+    <h1 class="festival-name">Odyssey Fantasia</h1>
+        <h3 class="motto">Enchanting Life</h3>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/odysseyfantasia/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.mixcloud.com/odysseyfantasia/" target="_blank"><i class="fab fa-mixcloud"></i></a>
+      <a href="https://www.youtube.com/@odysseyfantasia/" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.twitter.com/odysseyfantasia/" target="_blank"><i class="fab fa-twitter"></i></a>
+    </div>
   </div>
+
+  <section id="news">
+    <div class="container">
+      <h2>NEWS</h2>
+      <ul>
+        <li><a href="https://www.instagram.com/odysseyfantasia/">Odyssey Fantasia Official Instagram Page is now Live</a></li>
+        <li><a href="https://www.youtube.com/@BassTimeOfficial">"Bass Time" Announced as Trap Event Partner for Echoes Set</a></li>
+        <li><a href="#">Lineup Information for Pilot Event to be Revealed in 2 Weeks</a></li>
+        <li><a href="#">Label Partners and Discussions Underway</a></li>
+        <li><a href="#">Community Polls</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="scroll-button">
+    <a href="#news"><i class="fas fa-chevron-down"></i></a>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+  <script>
+    // Smooth scrolling when clicking on the scroll button
+    document.querySelector('.scroll-button a').addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      window.scrollTo({
+        top: target.offsetTop,
+        behavior: 'smooth'
+      });
+    });
+  </script>
 </body>
 </html>
